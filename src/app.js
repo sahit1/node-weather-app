@@ -21,7 +21,6 @@ app.get('/weather',(req,res)=>{
             error : 'invalid address '
         })
         var address = req.query.address;
-        // console.log(address)
          geocode(address,(err , data)=>{
             if(err) return res.send("ERROR!! "+err)
             forecast(data.latitude , data.longitude,(err,{temperature,summary} ={})=>{
@@ -35,9 +34,7 @@ app.get('/weather',(req,res)=>{
             })
             
         })
-    //     res.send({
-    //    address: address
-    // })
+ 
 })
 app.listen(3000 , ()=>{
     console.log("Server started on port 3000")
